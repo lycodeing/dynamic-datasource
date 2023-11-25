@@ -5,12 +5,12 @@ spring:
     master:
       driver-class-name: com.mysql.cj.jdbc.Driver
       username: root
-      password: yuantu666
+      password:
       url: jdbc:mysql://120.24.91.230:3306/halo
     slave:
       driver-class-name: com.mysql.cj.jdbc.Driver
       username: root
-      password: yuantu666
+      password:
       url: jdbc:mysql://120.24.91.230:3306/halodb2
 
 
