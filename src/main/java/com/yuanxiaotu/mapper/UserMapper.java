@@ -1,2 +1,9 @@
-package com.yuanxiaotu.mapper;public interface UserMapper {
+package com.yuanxiaotu.mapper;
+
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.yuanxiaotu.entity.User;
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
+public interface UserMapper extends BaseMapper<User> {
 }

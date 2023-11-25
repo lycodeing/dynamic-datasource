@@ -1,0 +1,38 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    master:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: yuantu666
+      url: jdbc:mysql://120.24.91.230:3306/halo
+    slave:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: yuantu666
+      url: jdbc:mysql://120.24.91.230:3306/halodb2
+
+
+
+# mybatis-plus相关配置
+mybatis-plus:
+  configuration:
+    #开启sql日志
+    #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 是否开启自动驼峰命名规则映射:从数据库列名到Java属性驼峰命名的类似映射
+    map-underscore-to-camel-case: true
+    # 解决oracle更新数据为null时无法转换报错，mysql不会出现此情况
+    jdbc-type-for-null: 'null'
+  #实体类所在包
+  type-aliases-package: com.batchUtil.model
+  # xml扫描，多个目录用逗号或者分号分隔（告诉 Mapper 所对应的 XML 文件位置）
+  mapper-locations: classpath:mapper/*.xml
+
+# 设置日志级别
+logging:
+  level:
+    root: INFO # INFO级别以及以上级别的日志输出到控制台上
+    #com.example.demo.dao: debug，可以控制单个包下日志级别
+    # 设置logback.xml位置,如果logback不在resources或者不是默认文件名
+    # config: classpath:log/logback.xml
