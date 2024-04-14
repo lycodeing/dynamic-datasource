@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Random;
-
 /**
  * @author xiaotianyu
  */
 @RestController
 @RequestMapping("/user")
 public class UserController {
+
+    private static final String SUCCESS = "success";
 
     private final UserMapper userMapper;
 
@@ -27,13 +27,15 @@ public class UserController {
 
     @Master
     @GetMapping("/master")
-    public void master() {
+    public String master() {
         userMapper.insert(User.builder().name(Math.random() * 100 + "_master").build());
+        return SUCCESS;
     }
 
     @Slave
     @GetMapping("/slave")
-    public void slave() {
+    public String slave() {
         userMapper.insert(User.builder().name(Math.random() * 100 + "_slave").build());
+        return SUCCESS;
     }
 }
